@@ -1,0 +1,20 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# systemd generates mount units based on this file, see systemd.mount(5).
+# Please run 'systemctl daemon-reload' after making changes here.
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/vda2 during installation
+UUID=3d71bf7f-a3b8-45d8-b234-477325287d07 /               ext4    errors=remount-ro 0       1
+# /boot/efi was on /dev/vda1 during installation
+UUID=F911-E8A4  /boot/efi       vfat    umask=0077      0       1
+# swap was on /dev/vda3 during installation
+UUID=8ef7435f-d960-4ca2-bbd8-462753c33fad none            swap    sw              0       0
+/dev/sr0        /media/cdrom0   udf,iso9660 user,noauto     0       0
+//192.168.1.12/Linux /mnt/share/Linux cifs credentials=/home/nortron/.smb.conf,iocharset=utf8,gid=1000,uid=1000,file_mode=0777,dir_mode=0777 0 0
+//192.168.1.12/isos /mnt/share/isos cifs credentials=/home/nortron/.smb.conf,iocharset=utf8,gid=1000,uid=1000,file_mode=0777,dir_mode=0777 0 0
+#//192.168.1.12/ /mnt/share/test cifs credentials=/home/nortron/.smb.conf,iocharset=utf8,gid=1000,uid=1000,file_mode=0777,dir_mode=0777 0 0
